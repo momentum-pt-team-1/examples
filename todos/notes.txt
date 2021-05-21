@@ -1,0 +1,8 @@
+want to be able to see notes by category
+
+model
+url
+view
+template
+
+fix category pluralization in admin

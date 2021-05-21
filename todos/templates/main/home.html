@@ -6,9 +6,14 @@
 {% block content %}
 
 <h1>THIS IS THE HOMEPAGE</h1>
-
+<h2>TODOS</h2>
 {% for todo in todos.all %}
 {{todo}}
+{% endfor %}
+
+<h2>CATEGORIES</h2>
+{% for category in categories.all %}
+<a href="{% url 'category-detail' pk=category.pk %}">{{category}}</a>
 {% endfor %}
 
 

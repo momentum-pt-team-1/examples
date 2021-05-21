@@ -22,9 +22,13 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name="home"),
+    path('user/todos', views.user_detail, name="todos-for-user"),
     path('accounts/', include('registration.backends.simple.urls')),
     path('__debug__', include(debug_toolbar.urls)),
     path('mytodos/', views.user_detail, name="mytodos"),
+    path('category/<int:pk>/', views.category_detail, name="category-detail"),
 ] 
+
+#TODO make url for listing user's personal Todos
 
 
