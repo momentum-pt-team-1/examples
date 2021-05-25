@@ -27,6 +27,8 @@ urlpatterns = [
     path('__debug__', include(debug_toolbar.urls)),
     path('mytodos/', views.user_detail, name="mytodos"),
     path('category/<int:pk>/', views.category_detail, name="category-detail"),
+    path('api/todos', views.list_todos_json, name="list-todos-json"),
+    path('api/user/todos', views.todos_by_user_json, name="todos-by-user-json"),
 ] 
 
 #TODO make url for listing user's personal Todos
