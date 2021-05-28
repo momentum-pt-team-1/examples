@@ -17,4 +17,10 @@
 {% endfor %}
 
 
+<form action="{% url 'list-todos-json' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">POST</button>
+</form>
+
+
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 
 from .models import Todo, Category
@@ -13,9 +13,17 @@ def homepage(request):
 
 # same purpose as homepage, but for consumption by other apps/computers
 def list_todos_json(request):
-    todos = Todo.objects.all()
-    todos_json = serialize("json", todos, fields=('text', 'user'))
-    return HttpResponse(todos_json, content_type="application/json")
+    if request.method == 'POST':
+        data = {'message': 'You sent a POST request'}
+        return JsonResponse(data)
+
+    else: 
+        todos = Todo.objects.all()
+        todos_json = serialize("json", todos, fields=('text', 'user'))
+        return HttpResponse(todos_json, content_type="application/json")
+
+
+
 
 @login_required
 def user_detail(request):
