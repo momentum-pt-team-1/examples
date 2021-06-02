@@ -7,11 +7,21 @@ from localflavor.us.models import USPostalCodeField
 
 
 class Profile(models.Model):
+    PIEDMONT = 'PM'
+    MOUNTAINS = 'MT'
+    COASTAL_PLAIN = 'CP'
+
+    REGION_CHOICES = [
+        (PIEDMONT, 'Piedmont'),
+        (MOUNTAINS, 'Mountains')
+        (COASTAL_PLAIN, 'Coastal Plain')
+    ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = USPostalCodeField()
     experience_level = models.IntegerField()
     moniker = models.CharField(max_length=240)
     effort_level = models.IntegerField()
+    region = models.CharField(choices=REGION_CHOICES)
 
     def __str__(self):
         return self.moniker
