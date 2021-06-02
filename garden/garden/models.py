@@ -13,15 +13,15 @@ class Profile(models.Model):
 
     REGION_CHOICES = [
         (PIEDMONT, 'Piedmont'),
-        (MOUNTAINS, 'Mountains')
-        (COASTAL_PLAIN, 'Coastal Plain')
+        (MOUNTAINS, 'Mountains'),
+        (COASTAL_PLAIN, 'Coastal Plain'),
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = USPostalCodeField()
     experience_level = models.IntegerField()
     moniker = models.CharField(max_length=240)
     effort_level = models.IntegerField()
-    region = models.CharField(choices=REGION_CHOICES)
+    region = models.CharField(choices=REGION_CHOICES, max_length=100)
 
     def __str__(self):
         return self.moniker
