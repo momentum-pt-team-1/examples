@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+requests = "*"
+django-registration-redux = "*"
+django-localflavor = "*"
 
 [dev-packages]
 
