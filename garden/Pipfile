@@ -8,6 +8,7 @@ django = "*"
 requests = "*"
 django-registration-redux = "*"
 django-localflavor = "*"
+django-extensions = "*"
 
 [dev-packages]
 

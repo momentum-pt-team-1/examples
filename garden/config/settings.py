@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party
     'localflavor',
+    'django_extensions',
     # my own apps from this project
     'garden',
 ]
